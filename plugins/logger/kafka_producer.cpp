@@ -190,6 +190,8 @@ void KafkaProducerPlugin::init(const std::string& name,
    */
   auto conf = rd_kafka_conf_new();
 
+  setConf(conf, "message.max.bytes", "4000000");
+
   if (FLAGS_verbose) {
     setConf(conf, "debug", "all");
   }
